@@ -10,7 +10,7 @@ RUN yum -y update && yum -y install aws-cli \
 RUN pip install ansible boto3
 
 RUN wget https://releases.hashicorp.com/packer/1.2.1/packer_1.2.1_linux_amd64.zip && unzip packer_1.2.1_linux_amd64.zip
-RUN mv packer /usr/sbin/ && rm -rf packer_1.2.1_linux_amd64.zip
+RUN rm -rf packer_1.2.1_linux_amd64.zip && mv packer /usr/sbin/
 
 RUN useradd ansible
 ENV USER ansible
