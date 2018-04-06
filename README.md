@@ -2,7 +2,7 @@
 
 ### Features
 
-* Amazon Linux AMI 2017.09.1
+* Alpine 3.7.0
 * Packer 1.2.1
 * Ansible 2.5.0
 * AWS-CLI 1.14.9
@@ -14,8 +14,7 @@
 If necessary, change the source route that you want to mount inside the container.
 
 ```bash
-docker run -ti -v /packer:/opt/packer --name packer -d punkerside/packer /bin/bash
-docker exec -ti packer_01 bash
+docker run -it punkerside/packer sh
 ```
 
 ### Execute Packer
