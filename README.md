@@ -28,5 +28,5 @@ docker run -it -v ./packer:/packer punkerside/packer sh
 You must change the variables AWS_REGION and AWS_SUBNET, keeping in mind that the subnet must be able to assign public ip addresses.
 
 ```bash
-packer build -var 'aws_region=AWS_REGION' -var 'aws_subnet=AWS_SUBNET' packer.json
+packer build -var 'aws_access_key=ACCESS_KEY' -var 'aws_secret_key=SECRET_KEY' -var 'aws_region=AWS_REGION' -var 'aws_subnet=AWS_SUBNET' packer.json
 ```

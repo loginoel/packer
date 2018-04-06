@@ -1,11 +1,15 @@
 {
     "variables": {
+      "aws_access_key": "",
+      "aws_secret_key": "",
       "aws_region": "",
       "aws_subnet": "",
       "aws_ami": "ami-3bfab942"
     },
     "builders": [{
       "type": "amazon-ebs",
+      "access_key": "{{user `aws_access_key`}}",
+      "secret_key": "{{user `aws_secret_key`}}",
       "region": "{{user `aws_region`}}",
       "subnet_id": "{{user `aws_subnet`}}",
       "source_ami": "{{user `aws_ami`}}",
