@@ -9,12 +9,18 @@
 * Python 2.7.13
 * Botocore 1.8.13
 
+### Clone Project
+
+```bash
+git clone https://github.com/loginoel/packer.git
+```
+
 ### Run and Connect to Container
 
 If necessary, change the source route that you want to mount inside the container.
 
 ```bash
-docker run -it punkerside/packer sh
+docker run -it -v ./packer:/packer punkerside/packer sh
 ```
 
 ### Execute Packer
