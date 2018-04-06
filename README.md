@@ -11,8 +11,10 @@
 
 ### Run and Connect to Container
 
+If necessary, change the source route that you want to mount inside the container.
+
 ```bash
-docker run -ti -v /data:/opt/packer --name packer -d punkerside/packer /bin/bash
+docker run -ti -v /packer:/opt/packer --name packer -d punkerside/packer /bin/bash
 docker exec -ti packer_01 bash
 ```
 
