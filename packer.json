@@ -1,0 +1,37 @@
+{
+    "variables": {
+      "aws_region": "",
+      "aws_subnet": "",
+      "aws_ami": "ami-3bfab942"
+    },
+    "builders": [{
+      "type": "amazon-ebs",
+      "region": "{{user `aws_region`}}",
+      "subnet_id": "{{user `aws_subnet`}}",
+      "source_ami": "{{user `aws_ami`}}",
+      "instance_type": "t2.small",
+      "ssh_username": "ec2-user",
+      "ami_name": "packer {{timestamp}}",
+      "launch_block_device_mappings": [
+        {
+          "device_name": "/dev/xvda",
+          "volume_size": 10,
+          "volume_type": "gp2",
+          "delete_on_termination": true
+        }
+      ],
+      "ami_block_device_mappings": [
+        {
+          "device_name": "/dev/xvda",
+          "volume_size": 10,
+          "volume_type": "gp2",
+          "delete_on_termination": true
+        }
+      ]
+    }],
+    "provisioners": [{
+      "type": "ansible",
+      "playbook_file": "./playbook.yml",
+      "sftp_command": "/usr/libexec/openssh/sftp-server -e"
+    }]
+}

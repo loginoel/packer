@@ -1,0 +1,17 @@
+- name: install nginx
+  yum:
+    name:
+      - nginx
+
+- name: copy vhosts config
+  copy:
+    src: "{{ role_path }}/files/index.html"
+    dest: /usr/share/nginx/index.html
+    owner: root
+    group: root
+    mode: 0755
+
+- name: chkconfig nginx
+  service:
+    name: nginx
+    enabled: yes
